@@ -42,7 +42,7 @@ sudo chgrp -R vagrant /home/vagrant/anaconda
 # Install Clone repo, install Python dependencies
 #
 cd /home/vagrant
-git clone https://github.com/rjurney/Agile_Data_Code_2
+git clone git@github.com:ATALLC/Agile_Data_Code_2.git
 cd /home/vagrant/Agile_Data_Code_2
 export PROJECT_HOME=/home/vagrant/Agile_Data_Code_2
 echo "export PROJECT_HOME=/home/vagrant/Agile_Data_Code_2" | sudo tee -a /home/vagrant/.bash_profile
@@ -91,8 +91,8 @@ export SPARK_HOME=/home/vagrant/spark
 echo 'export SPARK_HOME=/home/vagrant/spark' | sudo tee -a /home/vagrant/.bash_profile
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop/
 echo 'export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop/' | sudo tee -a /home/vagrant/.bash_profile
-export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`
-echo 'export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`' | sudo tee -a /home/vagrant/.bash_profile
+export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`:$HADOOP_HOME/share/hadoop/tools/lib/*
+echo 'export SPARK_DIST_CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath`:$HADOOP_HOME/share/hadoop/tools/lib/*' | sudo tee -a /home/vagrant/.bash_profile
 export PATH=$PATH:$SPARK_HOME/bin
 echo 'export PATH=$PATH:$SPARK_HOME/bin' | sudo tee -a /home/vagrant/.bash_profile
 
